@@ -8,7 +8,16 @@ score.innerText = 0
 let textDown
 let move = 20
 let revr = 20
-let number = [40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360]
+let number = []
+function num (item){
+    for (let i=30;i<item;i++){
+       if(i%20===0){
+        number.push(i)
+       }
+    }
+}
+num(380)
+console.log(number)
 let food = {
     x: number[(Math.floor(Math.random() * number.length))],
     y: number[(Math.floor(Math.random() * number.length))]
@@ -76,12 +85,11 @@ function snakeDraw() {
     }
 
 }
-
+let coorMove
 function moveSnake() {
 
 
     if (textDown === 'Up') {
-
         snakeMoveY -= 20
 
     }
@@ -137,6 +145,7 @@ function Game() {
     foodDraw()
     moveSnake()
     gameOver()
+    
 }
 
 let intervalGame = setInterval(Game, 100)
